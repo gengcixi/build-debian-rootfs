@@ -1,5 +1,7 @@
 # build-debian-rootfs
+
 ##build steps:
+
     1. ./build-debian-rootfs.sh arm|arm64
     2. ./ch-mount.sh -m ROOTFS
     3. in rootfs: run config.sh 
