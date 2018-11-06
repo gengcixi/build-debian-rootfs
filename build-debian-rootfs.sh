@@ -11,8 +11,11 @@ ARCH=$1
 ROOTFS=rootfs-${ARCH}
 
 $SUPER apt-get install binfmt-support qemu qemu-user-static debootstrap  multistrap binfmt-support  dpkg-cross
-
+if [ -d ${ROOTFS} ];then
+    $SUPER rm -rf ${ROOTFS}
+fi
 $SUPER mkdir ${ROOTFS}
+
 if [ ${ARCH} = arm64 ];then
     $SUPER debootstrap --arch=${ARCH} --foreign stretch ${ROOTFS} http://cdn.debian.net/debian/
     $SUPER  cp /usr/bin/qemu-aarch64-static ${ROOTFS}/usr/bin
@@ -22,12 +25,9 @@ elif [ ${ARCH} = arm ];then
 fi
 #$SUPER debootstrap --arch=${ARCH} --foreign stretch ${ROOTFS} http:/ftp.debian.org/debian/
 
+
 $SUPER  cp /etc/hosts ${ROOTFS}/etc/hosts
 $SUPER  cp /proc/mounts ${ROOTFS}/etc/mtb
-
-
-
-
 $SUPER chmod 666 ${ROOTFS}/etc/fstab
 $SUPER echo "proc /proc proc defaults 0 0" >> ${ROOTFS}/etc/fstab
 $SUPER echo "sysfs /sys sysfs defaults 0 0" >> ${ROOTFS}/etc/fstab
