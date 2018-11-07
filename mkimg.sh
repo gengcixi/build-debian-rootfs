@@ -2,6 +2,10 @@
 ARCH=$1
 IMG=rootfs-${ARCH}.img
 
+if [ -f ${IMG} ];then
+    rm ${IMG}
+fi
+
 dd if=/dev/zero of=${IMG} bs=1M count=2500
 mkfs.ext4 ${IMG}
 
