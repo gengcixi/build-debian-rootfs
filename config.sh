@@ -11,12 +11,28 @@ useradd -G sudo -m -s /bin/bash unisoc
 echo "Enter unisoc password:"
 passwd unisoc
 
-apt-get install -y locales locales-all procps
-apt-get install -y language-pack-en-base sudo ssh
-apt-get install -y net-tools network-manager ethtool wireless-tools ifupdown iputils-ping
-apt-get install -y rsyslog libncurses5-dev libncursesw5-dev
-apt-get install -y bash-completion python vim git  build-essential
-apt-get install -y perl tree usbutils
+apt-get install -y locales
+apt-get install -y locales-all
+apt-get install -y procps
+apt-get install -y sudo
+apt-get install -y ssh
+apt-get install -y net-tools
+apt-get install -y network-manager
+apt-get install -y ethtool
+apt-get install -y wireless-tools
+apt-get install -y ifupdown
+apt-get install -y iputils-ping
+apt-get install -y rsyslog
+apt-get install -y libncurses5-dev
+apt-get install -y libncursesw5-dev
+apt-get install -y bash-completion
+apt-get install -y python
+apt-get install -y vim
+apt-get install -y git
+apt-get install -y build-essential
+apt-get install -y perl
+apt-get install -y tree
+apt-get install -y usbutils
 
 echo "=========start build htop========"
 wget http://hisham.hm/htop/releases/2.2.0/htop-2.2.0.tar.gz
@@ -36,8 +52,10 @@ echo "=========ended build htop========"
 #rm usr/bin/qemu-aarch64-static
 
 ln -sf /lib/systemd/system/multi-user.target  etc/systemd/system/default.target
-mv etc/systemd/system/getty.target.wants/getty\@tty1.service etc/systemd/system/getty.target.wants/getty\@ttyS1.service
-ln -sf  etc/systemd/system/getty.target.wants/getty\@ttyS1.service lib/systemd/system/serial-getty\@.service
+#mv etc/systemd/system/getty.target.wants/getty\@tty1.service etc/systemd/system/getty.target.wants/getty\@ttyS1.service
+rm etc/systemd/system/getty.target.wants/getty\@tty1.service
+#ln -sf  etc/systemd/system/getty.target.wants/getty\@ttyS1.service lib/systemd/system/serial-getty\@.service
+ln -sf /lib/systemd/system/serial-getty@.service /etc/systemd/system/getty.target.wants/getty@ttyS1.service
 ln -sf /sbin/init init
 
 echo nameserver 114.114.114.114>/etc/resolv.conf
