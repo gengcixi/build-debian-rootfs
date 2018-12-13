@@ -18,6 +18,9 @@ apt-get install -y sudo
 apt-get install -y ssh
 apt-get install -y net-tools
 apt-get install -y network-manager
+apt-get install python-software-properties
+apt-get install software-properties-common
+apt-get install -y openssl
 apt-get install -y ethtool
 apt-get install -y wireless-tools
 apt-get install -y ifupdown
