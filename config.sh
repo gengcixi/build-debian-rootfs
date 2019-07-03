@@ -11,44 +11,26 @@ useradd -G sudo -m -s /bin/bash unisoc
 echo "Enter unisoc password:"
 passwd unisoc
 
-#apt-get install -y locales
-#apt-get install -y locales-all
-#apt-get install -y procps
-#apt-get install -y sudo
-#apt-get install -y ssh
-#apt-get install -y net-tools
-#apt-get install -y network-manager
-#apt-get install -y python-software-properties
-#apt-get install -y software-properties-common
-#apt-get install -y openssl
-#apt-get install -y ethtool
-#apt-get install -y wireless-tools
-#apt-get install -y ifupdown
-#apt-get install -y iputils-ping
-#apt-get install -y rsyslog
-#apt-get install -y libncurses5-dev
-#apt-get install -y libncursesw5-dev
-#apt-get install -y bash-completion
-#apt-get install -y python
-#apt-get install -y vim
-#apt-get install -y git
-#apt-get install -y build-essential
-#apt-get install -y perl
-#apt-get install -y tree
-#apt-get install -y usbutils
+function install_packages()
+{
+	# echo "=========start install packages========"
+	apt-get install -y locales-all
+	apt-get install -y procps
+	apt-get install -y python-software-properties
+	apt-get install -y software-properties-common
+	apt-get install -y libncurses5-dev
+	apt-get install -y libncursesw5-dev
+	apt-get install -y python
+	apt-get install -y vim
+	apt-get install -y git
+	apt-get install -y build-essential
+	apt-get install -y perl
+	apt-get install -y tree
+	apt-get install lrzsz
+	# echo "=========ended install packages========"
+}
 
-
-# echo "=========start build htop========"
-# wget http://hisham.hm/htop/releases/2.2.0/htop-2.2.0.tar.gz
-# tar xvf htop-2.2.0.tar.gz
-# cd htop-2.2.0
-# ./configure
-# make 
-# make install 
-# cd ..
-# rm htop* -rf
-# echo "=========ended build htop========"
-
+install_packages
 rm /bin/sh
 ln -sf /bin/bash /bin/sh
 
