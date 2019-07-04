@@ -39,7 +39,7 @@ rm etc/systemd/system/getty.target.wants/getty\@tty1.service
 ln -sf /lib/systemd/system/serial-getty@.service /etc/systemd/system/getty.target.wants/getty@ttyS1.service
 ln -sf /sbin/init init
 sed -i 's/#PermitRootLogin prohibit-password/PermitRootLogin yes/g' /etc/ssh/sshd_config
-sed -i 's/ExecStart=-/sbin/agetty/ExecStart=-/sbin/agetty --autologin root/g' /lib/systemd/system/serial-getty@.service
+sed -i 's/ExecStart=-\/sbin\/agetty/ExecStart=-\/sbin\/agetty --autologin root/g' /lib/systemd/system/serial-getty\@.service
 
 echo nameserver 114.114.114.114>/etc/resolv.conf
 echo nameserver 8.8.8.8>>/etc/resolv.conf
