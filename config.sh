@@ -27,6 +27,7 @@ function install_packages()
 	apt-get install -y perl
 	apt-get install -y tree
 	apt-get install lrzsz
+	apt-get clean
 	# echo "=========ended install packages========"
 }
 
