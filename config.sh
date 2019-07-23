@@ -5,6 +5,7 @@ echo "deb-src http://cdn.debian.net/debian stretch  main contrib non-free">>etc/
 
 apt-get update
 echo debian.unisoc>etc/hostname
+echo "127.0.1.1	debian.unisoc">>etc/hosts
 echo "Enter root password:"
 passwd root
 useradd -G sudo -m -s /bin/bash unisoc
