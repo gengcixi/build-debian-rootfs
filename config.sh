@@ -2,6 +2,14 @@
 
 echo "deb http://cdn.debian.net/debian stretch main contrib non-free">>etc/apt/source.list
 echo "deb-src http://cdn.debian.net/debian stretch  main contrib non-free">>etc/apt/source.list
+echo "deb https://mirrors.tuna.tsinghua.edu.cn/debian/ stretch main non-free contrib">>etc/apt/source.list
+echo "deb https://mirrors.tuna.tsinghua.edu.cn/debian/ stretch-updates main non-free contrib">>etc/apt/source.list
+echo "deb https://mirrors.tuna.tsinghua.edu.cn/debian/ stretch-backports main non-free contrib">>etc/apt/source.list
+echo "deb-src https://mirrors.tuna.tsinghua.edu.cn/debian/ stretch main non-free contrib">>etc/apt/source.list
+echo "deb-src https://mirrors.tuna.tsinghua.edu.cn/debian/ stretch-updates main non-free contrib">>etc/apt/source.list
+echo "deb-src https://mirrors.tuna.tsinghua.edu.cn/debian/ stretch-backports main non-free contrib">>etc/apt/source.list
+echo "deb https://mirrors.tuna.tsinghua.edu.cn/debian-security/ stretch/updates main non-free contrib">>etc/apt/source.list
+echo "deb-src https://mirrors.tuna.tsinghua.edu.cn/debian-security/ stretch/updates main non-free contrib">>etc/apt/source.list
 
 apt-get update
 echo debian.unisoc>etc/hostname
@@ -27,7 +35,8 @@ function install_packages()
 	apt-get install -y build-essential
 	apt-get install -y perl
 	apt-get install -y tree
-	apt-get install lrzsz
+	apt-get install -y lrzsz
+	apt-get install -y lsof
 	apt-get clean
 	# echo "=========ended install packages========"
 }
@@ -45,4 +54,4 @@ sed -i 's/ExecStart=-\/sbin\/agetty/ExecStart=-\/sbin\/agetty --autologin root/g
 
 echo nameserver 114.114.114.114>/etc/resolv.conf
 echo nameserver 8.8.8.8>>/etc/resolv.conf
-update-rc.d ifconfig.sh defaults
+update-rc.d start-on-boot.sh defaults
