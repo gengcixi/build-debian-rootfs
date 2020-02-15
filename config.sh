@@ -37,6 +37,7 @@ function install_packages()
 	apt-get install -y tree
 	apt-get install -y lrzsz
 	apt-get install -y lsof
+	apt-get install -y strace
 	apt-get clean
 	# echo "=========ended install packages========"
 }

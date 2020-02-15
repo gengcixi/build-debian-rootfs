@@ -14,7 +14,7 @@ WEB_APP='svr/service.js'
 NODE_EXE=/usr/local/bin/node
 start()
 {
-        echo "Starting custom scripts..."
+        echo "Starting custom scripts...">/dev/kmsg
 }
 stop()
 {
