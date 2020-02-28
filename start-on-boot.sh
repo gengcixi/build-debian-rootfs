@@ -32,7 +32,7 @@ case "$1" in
 		#start
 		;;
 	*)
-		echo "Usage: /etc/init.d/ifconfig {start|stop|restart}"
+		echo "Usage: /etc/init.d/start-on-boot {start|stop|restart}"
 		;;
 esac
 exit 0
