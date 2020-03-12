@@ -38,6 +38,7 @@ function install_packages()
 	apt-get install -y lrzsz
 	apt-get install -y lsof
 	apt-get install -y strace
+	apt-get install -y psmisc
 	apt-get install -y makedumpfile
 	apt-get install -y crash
 	apt-get install -y libdw1
