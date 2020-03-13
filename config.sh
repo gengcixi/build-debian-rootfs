@@ -25,7 +25,6 @@ function install_packages()
 	# echo "=========start install packages========"
 	apt-get install -y locales-all
 	apt-get install -y procps
-	apt-get install -y python-software-properties
 	apt-get install -y software-properties-common
 	apt-get install -y libncurses5-dev
 	apt-get install -y libncursesw5-dev
