@@ -20,36 +20,8 @@ useradd -G sudo -m -s /bin/bash unisoc
 echo "Enter unisoc password:"
 passwd unisoc
 
-function install_packages()
-{
-	# echo "=========start install packages========"
-	apt-get install -y locales-all
-	apt-get install -y procps
-	apt-get install -y software-properties-common
-	apt-get install -y libncurses5-dev
-	apt-get install -y libncursesw5-dev
-	apt-get install -y python
-	apt-get install -y vim
-	apt-get install -y git
-	apt-get install -y build-essential
-	apt-get install -y perl
-	apt-get install -y tree
-	apt-get install -y lrzsz
-	apt-get install -y lsof
-	apt-get install -y strace
-	apt-get install -y psmisc
-	apt-get install -y makedumpfile
-	apt-get install -y crash
-	apt-get install -y libdw1
-	apt-get install -y liblzo2-2
-	apt-get install -y kexec-tools
-	apt-get clean
-	# echo "=========ended install packages========"
-}
-
-install_packages
-rm /bin/sh
-ln -sf /bin/bash /bin/sh
+#rm /bin/sh
+#ln -sf /bin/bash /bin/sh
 
 ln -sf /lib/systemd/system/multi-user.target  etc/systemd/system/default.target
 rm etc/systemd/system/getty.target.wants/getty\@tty1.service
@@ -61,3 +33,4 @@ sed -i 's/ExecStart=-\/sbin\/agetty/ExecStart=-\/sbin\/agetty --autologin root/g
 echo nameserver 114.114.114.114>/etc/resolv.conf
 echo nameserver 8.8.8.8>>/etc/resolv.conf
 update-rc.d start-on-boot.sh defaults
+echo "Config rootfs done"

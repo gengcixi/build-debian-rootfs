@@ -58,5 +58,6 @@ LANG=C
 $SUPER chroot ${ROOTFS} debootstrap/debootstrap --second-stage
 
 $SUPER cp config.sh ${ROOTFS}/
+$SUPER cp install-package.sh ${ROOTFS}/
 $SUPER cp run-ltp.sh ${ROOTFS}/root/
 $SUPER cp start-on-boot.sh ${ROOTFS}/etc/init.d/
