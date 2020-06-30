@@ -1,16 +1,5 @@
 #!/bin/bash
 
-echo "deb http://cdn.debian.net/debian stretch main contrib non-free">>etc/apt/source.list
-echo "deb-src http://cdn.debian.net/debian stretch  main contrib non-free">>etc/apt/source.list
-echo "deb https://mirrors.tuna.tsinghua.edu.cn/debian/ stretch main non-free contrib">>etc/apt/source.list
-echo "deb https://mirrors.tuna.tsinghua.edu.cn/debian/ stretch-updates main non-free contrib">>etc/apt/source.list
-echo "deb https://mirrors.tuna.tsinghua.edu.cn/debian/ stretch-backports main non-free contrib">>etc/apt/source.list
-echo "deb-src https://mirrors.tuna.tsinghua.edu.cn/debian/ stretch main non-free contrib">>etc/apt/source.list
-echo "deb-src https://mirrors.tuna.tsinghua.edu.cn/debian/ stretch-updates main non-free contrib">>etc/apt/source.list
-echo "deb-src https://mirrors.tuna.tsinghua.edu.cn/debian/ stretch-backports main non-free contrib">>etc/apt/source.list
-echo "deb https://mirrors.tuna.tsinghua.edu.cn/debian-security/ stretch/updates main non-free contrib">>etc/apt/source.list
-echo "deb-src https://mirrors.tuna.tsinghua.edu.cn/debian-security/ stretch/updates main non-free contrib">>etc/apt/source.list
-
 apt-get update
 echo debian.unisoc>etc/hostname
 echo "127.0.1.1	debian.unisoc">>etc/hosts

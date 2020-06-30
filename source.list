@@ -1,0 +1,11 @@
+deb http://cdn.debian.net/debian stretch main contrib non-free
+deb-src http://cdn.debian.net/debian stretch  main contrib non-free
+deb https://mirrors.tuna.tsinghua.edu.cn/debian/ stretch main non-free contrib
+deb https://mirrors.tuna.tsinghua.edu.cn/debian/ stretch-updates main non-free contrib
+deb https://mirrors.tuna.tsinghua.edu.cn/debian/ stretch-backports main non-free contrib
+deb-src https://mirrors.tuna.tsinghua.edu.cn/debian/ stretch main non-free contrib
+deb-src https://mirrors.tuna.tsinghua.edu.cn/debian/ stretch-updates main non-free contrib
+deb-src https://mirrors.tuna.tsinghua.edu.cn/debian/ stretch-backports main non-free contrib
+deb https://mirrors.tuna.tsinghua.edu.cn/debian-security/ stretch/updates main non-free contrib
+deb-src https://mirrors.tuna.tsinghua.edu.cn/debian-security/ stretch/updates main non-free contrib
+

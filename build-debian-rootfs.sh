@@ -9,7 +9,7 @@ echo "$USER    adm   $SUPER"
 
 ARCH=$1
 ROOTFS=rootfs-${ARCH}
-DEBIAN_RELEASE="stretch"
+DEBIAN_RELEASE="buster"
 
 $SUPER apt-get install binfmt-support qemu qemu-user-static debootstrap  multistrap binfmt-support  dpkg-cross
 
@@ -63,4 +63,5 @@ $SUPER chroot ${ROOTFS} debootstrap/debootstrap --second-stage
 $SUPER cp config.sh ${ROOTFS}/
 $SUPER cp install-package.sh ${ROOTFS}/
 $SUPER cp run-ltp.sh ${ROOTFS}/root/
+$SUPER cp source.list ${ROOTFS}/etc/apt/
 $SUPER cp start-on-boot.sh ${ROOTFS}/etc/init.d/
