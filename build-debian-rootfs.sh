@@ -9,6 +9,7 @@ echo "$USER    adm   $SUPER"
 
 ARCH=$1
 ROOTFS=rootfs-${ARCH}
+DEBIAN_RELEASE="stretch"
 
 $SUPER apt-get install binfmt-support qemu qemu-user-static debootstrap  multistrap binfmt-support  dpkg-cross
 
@@ -28,18 +29,20 @@ if [ ${ARCH} = arm64 ];then
     $SUPER debootstrap \
         --arch=${ARCH} \
         --include="locales,sudo,ssh,net-tools,network-manager,openssl,ethtool,wireless-tools,ifupdown,iputils-ping,rsyslog,bash-completion,apt-transport-https,ca-certificates,curl,htop,usbutils" \
-        --foreign stretch ${ROOTFS} http://mirrors.163.com/debian/
+        --foreign $DEBIAN_RELEASE ${ROOTFS} https://mirrors.tuna.tsinghua.edu.cn/debian/
+#        --foreign $DEBIAN_RELEASE ${ROOTFS} http://mirrors.163.com/debian/
 
     $SUPER  cp /usr/bin/qemu-aarch64-static ${ROOTFS}/usr/bin
 elif [ ${ARCH} = arm ];then
     $SUPER debootstrap \
         --arch=${ARCH}hf \
         --include="locales,sudo,ssh,net-tools,network-manager,openssl,ethtool,wireless-tools,ifupdown,iputils-ping,rsyslog,bash-completion,apt-transport-https,ca-certificates,curl,htop,usbutils" \
-        --foreign stretch ${ROOTFS} hhttp://mirrors.163.com/debian/
+        --foreign $DEBIAN_RELEASE ${ROOTFS} https://mirrors.tuna.tsinghua.edu.cn/debian/
+#        --foreign $DEBIAN_RELEASE ${ROOTFS} http://mirrors.163.com/debian/
     $SUPER  cp /usr/bin/qemu-arm-static ${ROOTFS}/usr/bin
 fi
-#$SUPER debootstrap --arch=${ARCH} --foreign stretch ${ROOTFS} http:/ftp.debian.org/debian/
-#$SUPER debootstrap --arch=${ARCH} --foreign stretch ${ROOTFS} http://deb.debian.org/debian/
+#$SUPER debootstrap --arch=${ARCH} --foreign $DEBIAN_RELEASE ${ROOTFS} http:/ftp.debian.org/debian/
+#$SUPER debootstrap --arch=${ARCH} --foreign $DEBIAN_RELEASE ${ROOTFS} http://deb.debian.org/debian/
 
 $SUPER  cp /etc/hosts ${ROOTFS}/etc/hosts
 $SUPER  cp /proc/mounts ${ROOTFS}/etc/mtb
